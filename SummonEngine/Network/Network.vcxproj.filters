@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="NetMessages">
+      <UniqueIdentifier>{c8e4de9c-089b-4657-817a-3abea6c11251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{5fd59ef8-0700-4b4e-bc91-d8a6029b7e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetManagers">
+      <UniqueIdentifier>{ee14ee8c-fb62-47e0-bc85-995c1c518633}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="NetMessages\NetHandshakeMessage.cpp">
+      <Filter>NetMessages</Filter>
+    </ClCompile>
+    <ClCompile Include="NetMessages\NetMessage.cpp">
+      <Filter>NetMessages</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonNetworkFunctions.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="NetMessages\NetConnectedMessage.cpp">
+      <Filter>NetMessages</Filter>
+    </ClCompile>
+    <ClCompile Include="NetMessages\NetDisconnectedMessage.cpp">
+      <Filter>NetMessages</Filter>
+    </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>NetManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>NetManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="NetManager.cpp">
+      <Filter>NetManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="NetMessages\NetPingMessage.cpp">
+      <Filter>NetMessages</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NetMessages\NetHandshakeMessage.h">
+      <Filter>NetMessages</Filter>
+    </ClInclude>
+    <ClInclude Include="NetMessages\NetMessage.h">
+      <Filter>NetMessages</Filter>
+    </ClInclude>
+    <ClInclude Include="Serializer.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonNetworkFunctions.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonNetworkIncludes.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="NetMessages\NetConnectedMessage.h">
+      <Filter>NetMessages</Filter>
+    </ClInclude>
+    <ClInclude Include="NetMessages\NetDisconnectedMessage.h">
+      <Filter>NetMessages</Filter>
+    </ClInclude>
+    <ClInclude Include="NetMessages\NetIntMessage.h">
+      <Filter>NetMessages</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>NetManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>NetManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="NetManager.h">
+      <Filter>NetManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="NetMessages\NetPingMessage.h">
+      <Filter>NetMessages</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

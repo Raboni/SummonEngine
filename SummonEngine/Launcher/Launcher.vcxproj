@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{07CA4B2C-0308-45F1-9CAB-BEB8C6781373}</ProjectGuid>
+    <RootNamespace>Launcher</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\CleanUp.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\CleanUp.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(SolutionName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>$(SolutionName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)CommonUtilities\Include\;$(SolutionDir)Physics\Include\;$(SolutionDir)Engine\;$(SolutionDir)Network\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>NDEBUG;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)Temp\;$(SolutionDir)CommonUtilities\Lib\;$(SolutionDir)ModelLoader\Lib\;$(SolutionDir)Physics\Lib\;$(SolutionDir)Physics\Lib\$(Configuration)\;$(SolutionDir)OpenVR\Lib\;$(SolutionDir)Squirrel\Lib\;$(SolutionDir)TinyXML2\Lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Engine_$(Configuration).lib;Physics_$(Configuration).lib;ComponentSystem_$(Configuration).lib;Script_$(Configuration).lib;Editor_$(Configuration).lib;Game_$(Configuration).lib;CommonUtilities_$(Configuration).lib;ModelLoader_$(Configuration).lib;Network_$(Configuration).lib;openvr_api.lib;sq_$(Configuration).lib;sqstdlib_$(Configuration).lib;squirrel_$(Configuration).lib;tinyxml2_$(Configuration).lib;PhysXCharacterKinematic_static_64.lib;PhysXExtensions_static_64.lib;PhysXVehicle_static_64.lib;PhysXPvdSDK_static_64.lib;PhysXCooking_64.lib;PhysXCommon_64.lib;PhysXFoundation_64.lib;PhysX_64.lib;FastXml_static_64.lib;SnippetUtils_static_64.lib;SnippetRender_static_64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>del "$(OutDir)$(SolutionName)_$(Configuration).ilk"
+del "$(OutDir)$(SolutionName)_$(Configuration).ipdb"
+del "$(OutDir)$(SolutionName)_$(Configuration).exp"
+del "$(OutDir)$(SolutionName)_$(Configuration).iobj"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>del "$(OutDir)PhysX_64.dll"
+del "$(OutDir)PhysXCommon_64.dll"
+del "$(OutDir)PhysXCooking_64.dll"
+del "$(OutDir)PhysXFoundation_64.dll"
+del "$(OutDir)PhysXGpu_64.dll"
+copy "$(SolutionDir)Physics\DLL\*.dll" "$(OutDir)"
+copy "$(SolutionDir)Physics\Lib\$(Configuration)\*.lib" "$(SolutionDir)Physics\PhysX\PhysX\Lib\win.x86_64.vc141.mt\$(Configuration)\"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)CommonUtilities\Include\;$(SolutionDir)Physics\Include\;$(SolutionDir)Engine\;$(SolutionDir)Network\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)Temp\;$(SolutionDir)CommonUtilities\Lib\;$(SolutionDir)ModelLoader\Lib\;$(SolutionDir)Physics\Lib\;$(SolutionDir)Physics\Lib\$(Configuration)\;$(SolutionDir)OpenVR\Lib\;$(SolutionDir)Squirrel\Lib\;$(SolutionDir)TinyXML2\Lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Link>
+      <AdditionalDependencies>Engine_$(Configuration).lib;Physics_$(Configuration).lib;ComponentSystem_$(Configuration).lib;Script_$(Configuration).lib;Editor_$(Configuration).lib;Game_$(Configuration).lib;CommonUtilities_$(Configuration).lib;ModelLoader_$(Configuration).lib;Network_$(Configuration).lib;openvr_api.lib;sq_$(Configuration).lib;sqstdlib_$(Configuration).lib;squirrel_$(Configuration).lib;tinyxml2_$(Configuration).lib;PhysXCharacterKinematic_static_64.lib;PhysXExtensions_static_64.lib;PhysXVehicle_static_64.lib;PhysXPvdSDK_static_64.lib;PhysXCooking_64.lib;PhysXCommon_64.lib;PhysXFoundation_64.lib;PhysX_64.lib;FastXml_static_64.lib;SnippetUtils_static_64.lib;SnippetRender_static_64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>del "$(OutDir)$(SolutionName)_$(Configuration).ilk"
+del "$(OutDir)$(SolutionName)_$(Configuration).ipdb"
+del "$(OutDir)$(SolutionName)_$(Configuration).exp"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>del "$(OutDir)PhysX_64.dll"
+del "$(OutDir)PhysXCommon_64.dll"
+del "$(OutDir)PhysXCooking_64.dll"
+del "$(OutDir)PhysXFoundation_64.dll"
+del "$(OutDir)PhysXGpu_64.dll"
+copy "$(SolutionDir)Physics\DLL\*.dll" "$(OutDir)"
+copy "$(SolutionDir)Physics\Lib\$(Configuration)\*.lib" "$(SolutionDir)Physics\PhysX\PhysX\Lib\win.x86_64.vc141.mt\$(Configuration)\"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

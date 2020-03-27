@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="NodeSystem">
+      <UniqueIdentifier>{eb15c1e2-6ea5-4b1c-8182-0cbfbe2c33c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ScriptManager.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="NodeInstance.h">
+      <Filter>NodeSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeScript.h">
+      <Filter>NodeSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptStructs.h" />
+    <ClInclude Include="NodeSystem.h">
+      <Filter>NodeSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="NodePin.h">
+      <Filter>NodeSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeConnection.h">
+      <Filter>NodeSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="SafeCast.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ScriptManager.cpp" />
+    <ClCompile Include="NodeInstance.cpp">
+      <Filter>NodeSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeScript.cpp">
+      <Filter>NodeSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeSystem.cpp">
+      <Filter>NodeSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="NodePin.cpp">
+      <Filter>NodeSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeConnection.cpp">
+      <Filter>NodeSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
